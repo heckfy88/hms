@@ -46,7 +46,6 @@ class RoomControllerTest {
 
     @Test
     void createRoom_shouldReturn201_whenAdmin() throws Exception {
-        // если RoomDto record, заполни как у тебя реально (ниже пример-пустышка)
         RoomDto req = mock(RoomDto.class);
         RoomDto res = mock(RoomDto.class);
 
