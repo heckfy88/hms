@@ -20,10 +20,10 @@
 
 Система состоит из 4 модулей:
 
-1. **Service Discovery** (8761) - Service Discovery
-2. **Gateway** (8084) - Точка входа, маршрутизация
-3. **Hotel Management** (8082) - Управление отелями и номерами
-4. **Booking** (8083) - Бронирования, аутентификация пользователей
+1. **Service Discovery**  - Service Discovery
+2. **Gateway** - Точка входа, маршрутизация
+3. **Hotel Management** - Управление отелями и номерами
+4. **Booking** - Бронирования, аутентификация пользователей
 
 Сперва запускается Service Discovery, затем сервисы, затем маршрутизация через Gateway.
 
@@ -48,9 +48,9 @@
 ## Процесс бронирования (Saga)
 
 1. **PENDING** — создание бронирования
-2. **Подтверждение** — `POST /api/rooms/{id}/confirm-availability`
+2. **Confirm** — `POST /api/rooms/{id}/confirm-availability`
 3. **CONFIRMED** — успешное завершение
-4. **Компенсация**
+4. **CANCELLED** - отмена бронирования
     - статус `CANCELLED`
     - `POST /api/rooms/{id}/release`
 
@@ -89,3 +89,7 @@
 - Resource Server pattern
 - `@PreAuthorize`
 - HTTP 401 / 403
+
+# Предзаполнение данных 
+
+Есть предзаполнение данных с помощью DataSeeder классов
