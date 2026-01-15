@@ -44,7 +44,7 @@ public class BookingControllerTest {
     @MockBean
     private BookingService bookingService;
 
-    // helper: JWT с sub=username (как у тебя в BookingServiceImpl)
+    // helper: JWT с sub=username
     private static SecurityMockMvcRequestPostProcessors.JwtRequestPostProcessor jwtUser(String username) {
         return jwt().jwt(j -> j
                 .claim("sub", username)

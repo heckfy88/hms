@@ -53,7 +53,6 @@ class AdminControllerTest {
         mockMvc.perform(post("/user")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(req)))
-                // у тебя в проде может быть 401 или 403 — но точно не 200
                 .andExpect(status().is4xxClientError());
 
         verifyNoInteractions(adminService);
