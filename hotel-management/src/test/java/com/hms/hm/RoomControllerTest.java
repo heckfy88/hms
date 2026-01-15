@@ -1,5 +1,4 @@
 package com.hms.hm;
- // <-- поставь свой пакет!
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hms.hm.controller.api.AvailabilityDto;
@@ -25,7 +24,12 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-@SpringBootTest
+@SpringBootTest(properties = {
+        "eureka.client.enabled=false",
+        "eureka.client.register-with-eureka=false",
+        "eureka.client.fetch-registry=false",
+        "spring.cloud.discovery.enabled=false"
+})
 @AutoConfigureMockMvc
 class RoomControllerTest {
 
